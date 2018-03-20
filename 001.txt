@@ -15,3 +15,7 @@ i changed something now
 this is a new function i develop at 13:35
 
 this is a temp change , the pre not pushed
+
+in this test branch the tester find 5 bug and programerA fixed 3 bugs , the last 2 bugs need programerB to fix it  
+
+now B fixed the last two bugs
