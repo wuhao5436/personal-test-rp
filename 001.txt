@@ -5,3 +5,5 @@ this is my first fix this doc on branch
 i have changed master doc
 
 i changed this file at dj keji.
+
+i changed this file onine. and next test how to pull this file by smartgit
