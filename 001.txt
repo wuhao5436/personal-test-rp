@@ -9,3 +9,7 @@ i changed this file at dj keji.
 i changed this file onine. and next test how to pull this file by smartgit
 
 i changed something now
+
+ delete everything
+
+this is a new function i develop at 13:35
