@@ -13,4 +13,6 @@ this is my first fix this doc on branch
 i have changed master doc
 >>>>>>> 6d517a2101cef05c591b17d409837d57dcc9b48d
 
+i added something here
+
 this is the branch change
