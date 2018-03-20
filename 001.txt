@@ -16,4 +16,4 @@ this is a new function i develop at 13:35
 
 this is a temp change , the pre not pushed
 
-revert to pre ...
+revert to pre ... now it well done  pub to master
