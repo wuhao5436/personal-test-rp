@@ -14,4 +14,4 @@ i changed something now
 
 this is a new function i develop at 13:35
 
-this is a temp change , the pre not pulled
+this is a temp change , the pre not pushed
