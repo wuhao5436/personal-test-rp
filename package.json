@@ -1,0 +1,19 @@
+{
+  "name": "personal-test-rp",
+  "version": "1.0.0",
+  "description": "personal practice repository",
+  "main": "version.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuhao5436/aaa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wuhao5436/aaa/issues"
+  },
+  "homepage": "https://github.com/wuhao5436/aaa#readme"
+}
