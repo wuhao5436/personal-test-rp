@@ -302,3 +302,6 @@ store-order/
 dihog.dll.js
 dihog-manifest.json
 web-version.properties
+
+# builded files
+ts-learning/dist
