@@ -49,4 +49,23 @@ last // 3
 * 对于文字的修改 for of 循环可以识别32位的 UTF-16 字符，**以后遍历字符串要用 for of 循环了**
 * 'aaa'.codePointAt(0) > 0xFFFF来判断一个字符是由2个字节组成的还是4个字节组成的，相反操作是 String.fromCodePoint(0x20BB7)可以将码点返回对于的字符集。
 
-* 修改当前npm源地址（例如切换到taobao源） npm config set registry https://registry.npm.taobao.org
+> 数值的拓展
+* 8进制严格用0o表示, 二进制用 0b 表示
+* 要转换成十进制使用Number方法 Number('0b10')
+* Number的方法  
+
+方法名称 | 作用
+--- | ---
+Number.isFinite(15) | 判断是否有限
+Number.isNaN(NaN) | 判断是否是NaN
+Number.parseInt() | 取整，同全局parseInt
+Number.parseFloat() | 取浮点数，同全局parseFloat
+Number.isInteger() | 判断是否是整数
+* Math 的方法 
+
+方法名称| 作用
+--- | --- 
+Math.trunc() | 去掉小数部分返回整数部分，可以对字符串和Boolean值操作
+Math.sign() | 这个方法用来判断一个数是正数还是负数，有5种返回值，+-1，+-0，NaN
+2**2 | ** 表示指数运算表示2的2次方
+a | 1
