@@ -173,3 +173,30 @@ Object.setPrototypeOf() | 用来设置一个对象的原型 `Object.setPrototype
 Object.getPrototype | 读取一个对象的原型 `Object.getPrototype(obj)===objCreater.prototype // true`
 Object.keys()<br/>Object.values()<br/> Object.entries() | 对象继承的，可遍历属性的XX
 Object.fromEntries | Object.fromEntries 是 Object.entries 的逆操作，可用于map结构转化为对象。
+
+> Symbol 介绍
+* Symbol 是ES6引入的第七种数据类型，表示一种独一无二的数据类型
+* Symbol 通过 Symbol 函数生成,Symbol值是原始类型的值，不是对象，不能用new来生成
+```
+let s = Symbol()
+typeof s // symbol
+```
+* Symbol('aaa') 的参数只是当前Symbol值的一个描述，如果参数是对象类型，必须有toString 方法， s1.toString() // 'aaa' 可以看到当前Symbol的描述信息
+* Symbol值不可参与运算
+* Symbol作为key值时，不可用点操作符，哈哈，智障
+* Symbol作为属性名时是公开属性，不是私有属性
+* **牛逼用法：消除魔术字符串**
+```
+    var config = {
+        trangle: Symbol()
+    }
+    using config.trangle xxxx
+    // 忘记了看阮大爷的文档
+```
+* 可以遍历到Symbol值的属性或方法有 
+    * Object.getOwnPropertySymbols
+    * Object.keys()
+    * JSON.stringify()
+    * Reflect.ownKeys()
+* 如果想创建同一个Symbol值，可以使用 Symbol.for('samekey'), 参数使用同样的描述字符串
+* Symbol.keyfor 返回一个已经登记的Symbol类型的key，登记使用Symbol.for 登记
