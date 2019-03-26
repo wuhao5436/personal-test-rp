@@ -160,3 +160,16 @@ const clone3 = Object.create(
 
 ```
 * 拓展运算符可以跟表达式，例如三元表达式
+
+> 对象新增的方法 
+
+方法 | 描述
+--- | ---
+Object.is | Object.is('aa','aa') //true, 判断两个值是否相等， 特性是 +0 != -0 , NaN = NaN ,(伪代码)
+Object.assign | Object.assign不会拷贝不可枚举属性<br/>Object.assign有多种用法，详见阮老师的文章，概况如下<br/>1.为对象添加属性<br/>2.为对象添加方法<br/>3.克隆对象<br/>4.为属性指定默认值
+Object.getOwnPropertyDescriptors() | 可以获取狗哥对象属性的描述对象descriptor,其中包括 value, writable, enumerable, configurable, get , set 等，
+`__proto__` 属性| `var obj = Object.create(someOtherObj)` 指定obj 继承 someOtherObj, 非标准属性，只有在浏览器有部署
+Object.setPrototypeOf() | 用来设置一个对象的原型 `Object.setPrototypeOf(object, prototype)`
+Object.getPrototype | 读取一个对象的原型 `Object.getPrototype(obj)===objCreater.prototype // true`
+Object.keys()<br/>Object.values()<br/> Object.entries() | 对象继承的，可遍历属性的XX
+Object.fromEntries | Object.fromEntries 是 Object.entries 的逆操作，可用于map结构转化为对象。
