@@ -200,3 +200,59 @@ typeof s // symbol
     * Reflect.ownKeys()
 * 如果想创建同一个Symbol值，可以使用 Symbol.for('samekey'), 参数使用同样的描述字符串
 * Symbol.keyfor 返回一个已经登记的Symbol类型的key，登记使用Symbol.for 登记
+
+> Set 和 Map 数据结构
+* ES6提供了新的数据结构Set，但是成员的值都是唯一的，没有重复的值
+* Set可以接受一个具有interable接口的数据作为参数
+```
+    const a = new Set([1,2,3,3,3])
+    a.size = 3
+    for (let i of a) {
+        console.log(i)
+    }
+    // 1,2,3
+    [...new Set(arr|string)] // 可以用此方法来去重
+```
+* 在Set内部NaN是相等的，所以只会出现一个NaN
+* Set结构操作 
+
+方法 | 描述
+--- | ---
+add(value) | 添加值，返回Set结构本身
+delete(value) | 删除某个值，返回一个布尔值表示是否删除成功
+has(value) | 返回布尔值，判断是否包含
+clear() | 清除所有成员
+* Array.from 可以将Set结构转化为数组
+* 关于Set结构的遍历，keys(), values(), entries() 由于Set结构没有键值所以遍历出的结果都是一样的。
+* **666** Set结构很容易的实现并集，交集，和差集，而不用数组遍历那样麻烦。
+* WeakSet
+* WeakSet 的成员只能是对象，而且WeakSet 对象的成员不计入垃圾回收机制的，不可预测，可能随时会消失
+* WeakSet 成员不可遍历
+* Map 结构
+* Map 结构的出现是为了解决key-value结构中，key只能是字符串的问题
+* Map结构可以使用二维数组作为参数
+```
+const map = new Map([
+    ['name','张三'],
+    ['title', '张三的故事']
+])
+
+map.get('name') // 张三
+// 或者
+map.set(1,'aaaa')
+map.get(1) // 'aaaa'
+```
+* 注意在使用复杂类型的数据作为key时，map对象比较的是指针是否相同，所以这里要小心出错 
+
+方法 | 描述
+---|---
+size | 返回成员总数
+set(key, value) | 设置Map结构，返回Map结构.所以可以使用链式写法
+get(key) | 获取
+has(key) | 查询
+delete(key) | 删除，返回操作结果
+clear(key) | 清除
+keys(),values, entries(),forEach() | 遍历，forEach的第二个参数可以绑定this
+* map 结构使用filter或者是map方法返回的还是map 结构
+* WeakMap 只接受对象作为键名，null除外
+* WeakMap 适用的场景是它的键所对应的对象可能会消失，WeakMap有助于防止内存泄漏
