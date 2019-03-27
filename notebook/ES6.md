@@ -256,3 +256,19 @@ keys(),values, entries(),forEach() | 遍历，forEach的第二个参数可以绑
 * map 结构使用filter或者是map方法返回的还是map 结构
 * WeakMap 只接受对象作为键名，null除外
 * WeakMap 适用的场景是它的键所对应的对象可能会消失，WeakMap有助于防止内存泄漏
+> Promise
+* 创建一个promise,
+```
+const promise = new Promise((resolve, reject)=> {})
+```
+* promise一旦发生不可逆转，promise有三种状态 pendding, resolved, rejected
+* Promise.prototype.then 方法返回一个新的promise，注意不是原来的那个promise了
+* “promise会吃掉错误”，是指promise内部的错误不会影响promise外部代码的运行
+* Promise.prototype.finally() 不管怎么样都会执行
+* Promise.all() `
+    const p = Promise.all([p1,p2,p3])
+` 只有全部resolved，才会调用p的resolved, 注意，如果子promise有自己的catch方法，all 的 promise 不会调用catch方法。
+* Promise.race([p1,p2,p3]), 只要有一个子promise状态改变，那么外层的promise状态就会改变，可以用这个特点来组装一个超时报错的网络请求。
+* Promise.resolve(参数) 可以将一个对象转化成Promise对象。如果参数是空或者是简单数据类型，直接返回一个resolved状态的Promise，如果是promise对象，原封不动返回，如果是thenable对象，会立即执行thenable方法中的then方法
+* Promise.reject(参数)，大部分与Promise.resovle相同，但是抛出的错误是reject(参数)中的参数，原封不动的抛出
+* Promise.try 可以兼容同步代码和异步代码执行
