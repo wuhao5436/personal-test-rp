@@ -272,3 +272,9 @@ const promise = new Promise((resolve, reject)=> {})
 * Promise.resolve(参数) 可以将一个对象转化成Promise对象。如果参数是空或者是简单数据类型，直接返回一个resolved状态的Promise，如果是promise对象，原封不动返回，如果是thenable对象，会立即执行thenable方法中的then方法
 * Promise.reject(参数)，大部分与Promise.resovle相同，但是抛出的错误是reject(参数)中的参数，原封不动的抛出
 * Promise.try 可以兼容同步代码和异步代码执行
+
+> Interator 和 for...of 循环
+* 一种数据结构如果有了Interator接口，那么我们就称他为iterable
+* ES6规定，默认的Iterator 接口都部署在 Symbol.iterator 属性上，执行这个函数就会返回一个遍历器
+* for...of 循环可以break, continue return 等跳出循环。
+* 如果一个数据有个interator接口那么它就可以被for...of 遍历
