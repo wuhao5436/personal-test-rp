@@ -278,3 +278,54 @@ const promise = new Promise((resolve, reject)=> {})
 * ES6规定，默认的Iterator 接口都部署在 Symbol.iterator 属性上，执行这个函数就会返回一个遍历器
 * for...of 循环可以break, continue return 等跳出循环。
 * 如果一个数据有个interator接口那么它就可以被for...of 遍历
+> Generator 函数的语法
+* Generator 函数有事ES6 提供的一种异步解决方案，语法上可以理解成一个状态机，封装了很多内部状态
+* Generator 函数的特征 
+    * 在function关键字和函数名之间有个*号
+    * 在函数内部使用yield表达式
+```
+function* hello() { 
+ yield 'hello';
+ yield 'world';
+ return 'ending';
+}
+```
+* Generator 函数调用后不执行，而是返回一个指向内部状态的指针对象，也就是Interator对象，必须调用next方法分段执行
+* `var hl = hello()` 
+    * hl.next 执行到第一个yield停止执行， 返回一个对象`{value:'hello', done: false}`
+    * next 执行完毕的时候会返回这个对象`{value:undefined, done: true}`
+    * next 方法的参数表示上一个yield表达式返回的值
+    * for...of 循环可以自动遍历Generator函数生成的Interator对象，不需要一直调用next方法
+* Generator.prototype.throw 方法，可以在函数体外抛出错误，函数体内接收错误。throw方法只能在Generator对象开始next后执行，且执行时会顺带执行一条next
+* 如果Generator对象内部的错误没有捕获，那么JS引擎将认为这个Generator已经运行结束了
+* Generator.prototype.return() 可以返回给定的值，并且中介Generator函数
+* 如果Generator函数内部有try...finally 代码块，那么return 将会推迟到finally中的代码执行完成再执行
+* 如果想在一个Generator函数中调用另一个Generator函数，那么需要使用到yield表达式, 如果不使用yield表达式，那么执行到那一个next的时候返回的是一个Iterator对象
+    ```
+    function* foo() {
+        yield 'a';
+        yield 'b';
+    }
+    function* bar() {
+        yield 'x';
+        yield* foo();
+        yield 'y';
+    }
+    // 上面的调用相当于
+    function* bar() {
+        yield 'x';
+        yield 'a';
+        yield 'b';
+        yield 'y';
+    }
+    ```
+    Generator作为对象的属性
+    ```
+    {
+        * aa() {}, // 等同于
+        aa: funciont* () {
+
+        }
+    }
+    ```
+    
