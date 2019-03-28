@@ -348,7 +348,7 @@ let [foo,bar] = await Promise.all([getFoo(), getBar()])
 ```
 * **注意** 普通的async函数返回的是一个Promise对象，而异步的Generator函数返回的是一个异步的Iterator对象,同样可以理解为async语法糖自带执行器，而Iterator对象需要自己编写执行器
 > class 的基本语法
-* class 类中的 constructor 方法，是构造方法， 其中的this代表实例对象
+* class 类中的 constructor 方法，是构造方法， 其中的this代表实例对象，任何一个class类都有constructor方法，如果没有显示申明，那么就会默认声明。
 * class 类本身是函数，本身就指向构造函数 
 * 判断一个实例是不是某个类的实例，使用 foo instanceof Foo
 * hasOwnProperty 检查属性是否在自身
@@ -376,3 +376,50 @@ class IncreasingCounter {
 ```
 * 私有属性和私有方法 可以加#aa ,那么#aa将变成私有
 * new.target 返回new命令作用于的哪个构造函数，如果是不是直接new出来的，那么new.target会返回一个undefined。
+
+> Class 的继承
+* super的作用，调用父类的constructor，父类的构造函数
+* 在子类的构造函数值，中有调用了super之后才能使用this关键字。这是因为子类实例的构建，基于父类实例，只有super方法才能调用父类实例
+```
+class ColorPoint extends Point {
+  constructor(x, y, color) {
+    this.color = color; // ReferenceError
+    super(x, y);
+    this.color = color; // 正确
+  }
+}
+```
+* Object.getPrototypeOf(),可以从子类获取父类
+```
+Object.getPrototypeof(ColorPoint) === Point
+// true
+```
+
+* super 关键之 （多看几次）
+    * super关键之当函数使用，**只能**在子类的constructor函数中调用
+    * 作为对象使用时，在普通方法中调用指向父类原型对象，在静态方法中，指向父类， super.a 指向 父类.prototype.a 这个函数，
+
+* 继承 
+```
+class A {}
+class B extends A {}
+B.__proto__=== A
+B.prototype.__protp__ = A.prototype
+
+```
+    * 这两条继承链，可以这样理解：作为一个对象，子类（B）的原型（__proto__属性）是父类（A）；作为一个构造函数，子类（B）的原型对象（prototype属性）是父类的原型对象（prototype属性）的实例。
+```
+class A {
+}
+
+A.__proto__ === Function.prototype // true
+A.prototype.__proto__ === Object.prototype // true
+```
+```
+class A extends Object {
+}
+
+A.__proto__ === Object // true
+A.prototype.__proto__ === Object.prototype // true
+```
+* 子类实例的`__proto__.Proto__`是父类实例的`__proto__`
