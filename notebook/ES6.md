@@ -283,6 +283,7 @@ const promise = new Promise((resolve, reject)=> {})
 * Generator 函数的特征 
     * 在function关键字和函数名之间有个*号
     * 在函数内部使用yield表达式
+    * generator 的返回值是一个遍历器对象
 ```
 function* hello() { 
  yield 'hello';
@@ -328,4 +329,21 @@ function* hello() {
         }
     }
     ```
-    
+> Generator 函数的异步应用
+* Thunk 函数，在JavaScript语言中Thunk函数替换的不是表达式，而是多参数函数，将其替换成一个只接受回调函数作为单参数的函数
+* Thunk 函数适合用于Generator函数自动执行
+* 工具库co用来适配Generator函数的自动执行
+> async 函数
+* async 函数的就是Generator函数的语法糖
+* async 函数对Generator函数的改进提现在以下四点 
+     * async 函数自带执行器，不需要next去求值
+     * 更好的语意
+     * 更好的适应性，await会自动把后面的值转化为Promise对象，这样就不需要像 yield 一样，限制后面只能是Thunk函数或者是Promise对象
+     * 返回值是promise。只有当await命令后面所有的Promise对象执行完成才会改变状态，除非遇到return语句或者抛出错误
+
+* 任何一个await语句有reject状态，整个async函数都会中断执行，如果不希望发生中断的话要在async中使用try catch 语句
+* 如果不存在先后关系promise可以同时出发
+```
+let [foo,bar] = await Promise.all([getFoo(), getBar()])
+```
+* **注意** 普通的async函数返回的是一个Promise对象，而异步的Generator函数返回的是一个异步的Iterator对象,同样可以理解为async语法糖自带执行器，而Iterator对象需要自己编写执行器
