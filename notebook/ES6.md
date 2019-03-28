@@ -44,12 +44,12 @@ last // 3
     * **提取JSON**
     * 等等
 
-> 字符串的拓展
+## 字符串的拓展
 * 在1个字符2个字节，对于（Unicode码）大于0xFFFF的字符，Javascript 需要4个字节来存储
 * 对于文字的修改 for of 循环可以识别32位的 UTF-16 字符，**以后遍历字符串要用 for of 循环了**
 * 'aaa'.codePointAt(0) > 0xFFFF来判断一个字符是由2个字节组成的还是4个字节组成的，相反操作是 String.fromCodePoint(0x20BB7)可以将码点返回对于的字符集。
 
-> 数值的拓展
+## 数值的拓展
 * 8进制严格用0o表示, 二进制用 0b 表示
 * 要转换成十进制使用Number方法 Number('0b10')
 * Number的方法  
@@ -98,7 +98,7 @@ numbers(1, 2, 3, 4, 5)
 * 对于大量消耗资源的递归也是一样，Fibonacci数列的计算可以大大放大计算量
 * 柯里化（currying）将多参数的函数转化成单参数的形式
 * 纯粹的函数式变成没有循环操作命令，只能通过递归来实现，如果要使用递归，一定要使用尾部递归。
-> 数组拓展
+## 数组拓展
 * ... 拓展运算符 
     * 任何定义了Iteration接口的对象都可以使用...拓展运算符，对于没有定义Iteration接口的类数组对象，可以使用Array.from转化为真正的数组
     * 拓展运算符可以养来复制数组`a2 = [...a1]`， ES5使用concat操作来复制
@@ -119,7 +119,7 @@ includes | 判断数组是否包含某个特定值，第二个参数表示检查
 flat() | 用于将嵌套的数组拉品`[1,2[3,[4,5]]].flat(2) // [1,2,3,4,5]` 参数表示要拉平的层数，默认为1层，可以使用Infinity 无限拉升
 * **注意！ES5对于数组中空位的处理方式不同，但是ES6会统一将空位转换成undefined** ，所以尽量避免空位的出现，比如我们可以用fill方法填充。
 
-> 对象的拓展
+## 对象的拓展
 * 对象的每个属性都有一个描述对象，用来控制该属性的行为
 ```
 let obj = {foo: 123}
@@ -174,7 +174,7 @@ Object.getPrototype | 读取一个对象的原型 `Object.getPrototype(obj)===ob
 Object.keys()<br/>Object.values()<br/> Object.entries() | 对象继承的，可遍历属性的XX
 Object.fromEntries | Object.fromEntries 是 Object.entries 的逆操作，可用于map结构转化为对象。
 
-> Symbol 介绍
+## Symbol 介绍
 * Symbol 是ES6引入的第七种数据类型，表示一种独一无二的数据类型
 * Symbol 通过 Symbol 函数生成,Symbol值是原始类型的值，不是对象，不能用new来生成
 ```
@@ -256,7 +256,7 @@ keys(),values, entries(),forEach() | 遍历，forEach的第二个参数可以绑
 * map 结构使用filter或者是map方法返回的还是map 结构
 * WeakMap 只接受对象作为键名，null除外
 * WeakMap 适用的场景是它的键所对应的对象可能会消失，WeakMap有助于防止内存泄漏
-> Promise
+## Promise
 * 创建一个promise,
 ```
 const promise = new Promise((resolve, reject)=> {})
@@ -273,14 +273,14 @@ const promise = new Promise((resolve, reject)=> {})
 * Promise.reject(参数)，大部分与Promise.resovle相同，但是抛出的错误是reject(参数)中的参数，原封不动的抛出
 * Promise.try 可以兼容同步代码和异步代码执行
 
-> Interator 和 for...of 循环
+## Interator 和 for...of 循环
 * 一种数据结构如果有了Interator接口，那么我们就称他为iterable
 * ES6规定，默认的Iterator 接口都部署在 Symbol.iterator 属性上，执行这个函数就会返回一个遍历器
 * for...of 循环可以break, continue return 等跳出循环。
 * 如果一个数据有个interator接口那么它就可以被for...of 遍历
 > Generator 函数的语法
 * Generator 函数有事ES6 提供的一种异步解决方案，语法上可以理解成一个状态机，封装了很多内部状态
-* Generator 函数的特征 
+## Generator 函数的特征 
     * 在function关键字和函数名之间有个*号
     * 在函数内部使用yield表达式
     * generator 的返回值是一个遍历器对象
@@ -329,7 +329,7 @@ function* hello() {
         }
     }
     ```
-> Generator 函数的异步应用
+## Generator 函数的异步应用
 * Thunk 函数，在JavaScript语言中Thunk函数替换的不是表达式，而是多参数函数，将其替换成一个只接受回调函数作为单参数的函数
 * Thunk 函数适合用于Generator函数自动执行
 * 工具库co用来适配Generator函数的自动执行
@@ -347,7 +347,7 @@ function* hello() {
 let [foo,bar] = await Promise.all([getFoo(), getBar()])
 ```
 * **注意** 普通的async函数返回的是一个Promise对象，而异步的Generator函数返回的是一个异步的Iterator对象,同样可以理解为async语法糖自带执行器，而Iterator对象需要自己编写执行器
-> class 的基本语法
+## class 的基本语法
 * class 类中的 constructor 方法，是构造方法， 其中的this代表实例对象，任何一个class类都有constructor方法，如果没有显示申明，那么就会默认声明。
 * class 类本身是函数，本身就指向构造函数 
 * 判断一个实例是不是某个类的实例，使用 foo instanceof Foo
@@ -377,7 +377,7 @@ class IncreasingCounter {
 * 私有属性和私有方法 可以加#aa ,那么#aa将变成私有
 * new.target 返回new命令作用于的哪个构造函数，如果是不是直接new出来的，那么new.target会返回一个undefined。
 
-> Class 的继承
+## Class 的继承
 * super的作用，调用父类的constructor，父类的构造函数
 * 在子类的构造函数值，中有调用了super之后才能使用this关键字。这是因为子类实例的构建，基于父类实例，只有super方法才能调用父类实例
 ```
@@ -424,7 +424,7 @@ A.prototype.__proto__ === Object.prototype // true
 ```
 * 子类实例的`__proto__.Proto__`是父类实例的`__proto__`
 
-> 修饰器 @
+## 修饰器 @
 * @修饰器对类的行为的改变是在编译阶段，而不是运行阶段。
 * mixin 的实质是这样的
 ```
