@@ -347,3 +347,32 @@ function* hello() {
 let [foo,bar] = await Promise.all([getFoo(), getBar()])
 ```
 * **注意** 普通的async函数返回的是一个Promise对象，而异步的Generator函数返回的是一个异步的Iterator对象,同样可以理解为async语法糖自带执行器，而Iterator对象需要自己编写执行器
+> class 的基本语法
+* class 类中的 constructor 方法，是构造方法， 其中的this代表实例对象
+* class 类本身是函数，本身就指向构造函数 
+* 判断一个实例是不是某个类的实例，使用 foo instanceof Foo
+* hasOwnProperty 检查属性是否在自身
+* `foo.__proto__ === Object.getPrototypeof(foo)`
+* 存值函数和取值函数是定义在对应属性的描述对象上的，和ES5一致
+* 父类的静态方法可以被子类继承，静态方法是可以从super上调用的
+* 实例的属性可以卸载class类的最顶层，这时候不需要用this绑定了
+```
+class IncreasingCounter {
+  myCount = 1;
+  constructor() {
+    this._count = 0;
+  }
+}
+```
+* 静态属性，静态方法
+```
+ class Student () {
+     static title = '省级教学试点'
+     static saySchool () {
+         console.log('我是明德中学的')
+     }
+ }
+ Student.school = '明德中学'
+```
+* 私有属性和私有方法 可以加#aa ,那么#aa将变成私有
+* new.target 返回new命令作用于的哪个构造函数，如果是不是直接new出来的，那么new.target会返回一个undefined。
