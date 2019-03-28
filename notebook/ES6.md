@@ -423,3 +423,26 @@ A.__proto__ === Object // true
 A.prototype.__proto__ === Object.prototype // true
 ```
 * 子类实例的`__proto__.Proto__`是父类实例的`__proto__`
+
+> 修饰器 @
+* @修饰器对类的行为的改变是在编译阶段，而不是运行阶段。
+* mixin 的实质是这样的
+```
+const Foo = {
+  foo() { console.log('foo') }
+};
+class B () {
+
+}
+Object.assign(B.prototype, Foo)
+
+```
+* @装饰器可以用于类的方法，这时装饰器方法一共有三个参数 
+```
+ functions readonly (target, name, descriptor) {    
+     //第一个是类的原型对象 Person.prototype
+     //第二个要修饰的属性名称，
+     //第三个是这个属性的描述对象，属性的描述对象可以被装饰器修改
+ }
+```
+* 函数不可用装饰器，应为装饰器存在提升问题
