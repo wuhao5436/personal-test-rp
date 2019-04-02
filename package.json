@@ -1,0 +1,33 @@
+{
+  "name": "personal-test-rp",
+  "version": "1.0.0",
+  "description": "personal practice repository",
+  "main": "version.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuhao5436/aaa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wuhao5436/aaa/issues"
+  },
+  "homepage": "https://github.com/wuhao5436/aaa#readme",
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.0.3",
+    "webpack": "^4.18.0",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.7",
+    "ramda": "^0.25.0",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0"
+  }
+}
