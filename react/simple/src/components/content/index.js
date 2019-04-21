@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Breadcrumb } from 'antd';
-import {Link} from 'react-router-dom';
+import {Link, Route} from 'react-router-dom';
+import Example from '../detail';
 export default class Content extends Component {
    
     render() {
@@ -12,7 +13,7 @@ export default class Content extends Component {
                     </Breadcrumb.Item>
                     <Breadcrumb.Item><a href="">文章1</a></Breadcrumb.Item>
                 </Breadcrumb>
-                我是内容
+             <Route path='/detail/:id' component={Example}></Route>
              </div>
         )
     }
