@@ -19,6 +19,11 @@ const  menuData   =  [
         code: 'title4',
         id:'004'
     },
+    {
+        title: '测试react新生命周期',
+        code: 'title5',
+        id:'005'
+    }
 ]
  
 const dataCreater = (type) =>{

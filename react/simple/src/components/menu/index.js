@@ -19,7 +19,7 @@ export default class Meun extends Component {
   render() {
     const {menuData} = this.state;
     return (
-      <div style={Object.assign({}, this.props.style, {background:'red'})}>
+      <div style={Object.assign({}, this.props.style)}>
         <ul>
             {
                 menuData.map(item => {

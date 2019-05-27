@@ -52,8 +52,8 @@ export default class Content extends Component {
                     </Breadcrumb.Item>
                     <Breadcrumb.Item><a href="">文章1</a></Breadcrumb.Item>
                 </Breadcrumb>
-             {/* <Route path='/detail/:id' component={Example}></Route> */}
-             <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+             <Route path={`/detail/${this.props.id}`} component={Example}></Route>
+             {/* <Table rowSelection={rowSelection} columns={columns} dataSource={data} /> */}
              </div>
         )
     }
