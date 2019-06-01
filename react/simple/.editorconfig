@@ -1,0 +1,19 @@
+# http://editorconfig.org
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+# 缩进数
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+# whether whitespace is allowed at the end of lines
+insert_final_newline = false
+# whether file should end with a newline
+
+[*.md]
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab
