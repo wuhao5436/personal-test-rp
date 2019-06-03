@@ -42,6 +42,9 @@ git config --global user.email john@163.com
     * git diff --cached 可以查看已经暂存的文件的变化  
     * git difftool --tool-help 可以查看系统可以使用的git diff 插件   
 
+* git commit 会启动默认文本编辑器
+    * git config --global core.editor 可以指定编辑软件
+
 
 * smartgit 试用过期以后文件破解目录  %APPDATA%\syntevo\SmartGit 删除 setting.xml 目文件
 * git本地公钥生成命令 `$ ssh-keygen -t rsa -C "17xxxxx30@qq.com"` 一路next 下去
