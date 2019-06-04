@@ -44,6 +44,33 @@ git config --global user.email john@163.com
 
 * git commit 会启动默认文本编辑器
     * git config --global core.editor 可以指定编辑软件
+    * git commit -a -m 'bug fix xxx' 在commit 加上-m可以省略git add 的操作，直接把跟踪的文件提交
+* git 移除文件
+    * rm 本地移除动作
+    * 在git rm  本地工作区删除文件 + 缓存区删除文件，例如  git rm user.log 可以删除git对文件的跟踪
+    * 如果不小心把日志文件，或者某一类很大的文件传上去了，仓库不需要，但是你的本地需要可以使用命令 git rm --cached user.log ，commit掉以后仓库的文件就会删除掉
+    * git rm log/\*log 可以移除log目录下的所有文件
+    * git rm \*.txt 可以移除所有已txt结尾的文件（包括文件夹下的）
+    * -- -f 没搞懂是什么意思 --
+* git 移动文件
+    * git mv a.js b.js 等于下面几条命令
+        * mv a.js b.js
+        * git rm a.js
+        * git add b.js
+* git log 日志系统 很好很强大
+    * git log -2 显示最近的两次提交
+    * git log -p -2 现在最近两次提交每次的差异
+    * git log --stat 查看提交的简略统计信息
+    * git log --pretty=oneline 格式化提交日志还可以是short,full,fuller
+    * 更加牛逼的是format工具 git log --pretty=format:"%h -%an"
+        |选项 | 说明|
+        |-|-|
+        |%H  | commit 的完整hash|
+        |%h  | commit 的简短hash|
+        |%an  | 文件作者 |
+        |%cn  | 文件提交者 |
+        |%s  | 提交的commit信息 |
+
 
 
 * smartgit 试用过期以后文件破解目录  %APPDATA%\syntevo\SmartGit 删除 setting.xml 目文件
