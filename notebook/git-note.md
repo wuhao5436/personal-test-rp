@@ -63,6 +63,7 @@ git config --global user.email john@163.com
     * git log --stat 查看提交的简略统计信息
     * git log --pretty=oneline 格式化提交日志还可以是short,full,fuller
     * 更加牛逼的是format工具 git log --pretty=format:"%h -%an"
+    
         |选项 | 说明|
         |-|-|
         |%H  | commit 的完整hash|
