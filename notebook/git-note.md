@@ -63,6 +63,7 @@ git config --global user.email john@163.com
     * git log --stat 查看提交的简略统计信息
     * git log --pretty=oneline 格式化提交日志还可以是short,full,fuller
     * 更加牛逼的是format工具 git log --pretty=format:"%h -%an"
+    
         |选项 | 说明|
         |-|-|
         |%H  | commit 的完整hash|
@@ -70,8 +71,51 @@ git config --global user.email john@163.com
         |%an  | 文件作者 |
         |%cn  | 文件提交者 |
         |%s  | 提交的commit信息 |
+        |%s  | 提交的commit信息 |
+        |%s  | 提交的commit信息 |
+    * 一个很有用的筛选项 是-S  
+        git log -Sfunction_name 可以列出添加或删除了某些字段的提交
+        git log --committer wuhao 可以把wuhao的提交过滤出来
+        --auther wuhao 可以把作者是wuhao的筛选出来
+        --grep aaa 可以把提交信息中包含“aaa”的提交筛选出来
 
-
+* 撤销操作
+    * commit 信息的提交后如果想重置信息可以使用 git commit --amend
+    * 如果使用了git add . 把不想加入的文件也加入了，那么使用git reset HEAD aa.md 可以将aa.md 移出暂存区
+    * reset 不加 --hard 命令并不危险
+    * git checkout -- aa.md 可以将aa.md 的全部修改清空，回到上一次commit的状态，是一个危险操作
+        
+* git 远程操作
+    * git remote -v 可以查看对应的远程仓库
+    * git remote add aaa git@github.com:wuhao5436/happyPIg.git 可以添加远程仓库，并命名短名字aaa ，以后再推动的过程中可以 git push aaa master , 把本地的master分支推送到短名aaa, 对应的远程仓库（成功的前提是远程仓库没有其他人提交）
+    * git remote show 可以列出类似于aaa这样的所有短名
+    * git remote show aaa 可以查看该远程仓库的详细信息
+    * git fetch 操作执行完成后，你会拥有那个远程仓库中所有分支的引用
+    * git fetch 和 git pull 的区别。git fetch 会把远程的数据拉取到本地，但是不会自动合并，git pull 会自动合并
+    * git clone 克隆一个远程仓库会自动把这个仓库设置为本地仓库的远程仓库，并默认以origin简写
+    * git clone 命令会自动设置本地master分支跟踪克隆的远程仓库的master分支
+    * git remote rename 去修改一个远程仓库的简写名 例如 git remote rename origindev dev
+    * 如果不需要某个简写仓库了可以移除 git remote rm dev
+    * git tag 可以打标签，一般是用来记录发布重要节点的，查看的时候git tag -l 'v1.8.5*'
+    会把1.8.5开头相关的都列出来
+    * 标签分为轻量标签lightweight和附注标签annotated
+        * 轻量标签是一个一般不会改变的分支，它只是特定提交的引用
+        * 附注标签（建议），是git数据库中的一个完整对象，可以被校验，可以添加很多打标者的信息， GPG验证
+    * 创建标签 git tag -a 20190616 -m '20190616 md2 功能上线'
+    * git show 20190616 可以查看这次打标的详细信息 作者的信息，日期，提交的内容
+    * 打轻量级标签 git tag v1.2.3 不要提供-a -m -s 选项
+    * 推送tag到远程仓库
+        * git push origin v1.2.3
+        * git push origin --tags 推送所有tag到远程origin
+        * 删除tag ，在本地操作的过程中创建出一个40位hash串命名的tag名称，所有想象删除操作如何，根据规律git tag -h ,查询到了很多命令，有一个-d类似见过，运行 git tag -d 0wsdfs44dfs... 删除掉了这个tag
+    * 检出一个tag， tag不能像branch一样来回切换，想要某个tag的拷贝还是要创建一个新分支
+    git checkout -b newpass v1.2.3
+    * git 别名git别名的意思就是可以给比较长的命令写配置一个简写，这样操作起来更加方便
+        ```
+        git config --global alias.co checkout // 运行git co = 运行 git checkout
+        git config --global alias.unstage 'reset HEAD --' //运行 git unstage file1 相当于运行 git reset HEAD -- file1
+        // 可以尝试一下编辑我的那个 --no-verify 使用一下
+        ```
 
 * smartgit 试用过期以后文件破解目录  %APPDATA%\syntevo\SmartGit 删除 setting.xml 目文件
 * git本地公钥生成命令 `$ ssh-keygen -t rsa -C "17xxxxx30@qq.com"` 一路next 下去
