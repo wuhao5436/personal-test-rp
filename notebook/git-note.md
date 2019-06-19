@@ -108,6 +108,7 @@ git config --global user.email john@163.com
         * git push origin v1.2.3
         * git push origin --tags 推送所有tag到远程origin
         * 删除tag ，在本地操作的过程中创建出一个40位hash串命名的tag名称，所有想象删除操作如何，根据规律git tag -h ,查询到了很多命令，有一个-d类似见过，运行 git tag -d 0wsdfs44dfs... 删除掉了这个tag
+        * 删除远程的tag git push origin :refs/tags/20190616
     * 检出一个tag， tag不能像branch一样来回切换，想要某个tag的拷贝还是要创建一个新分支
     git checkout -b newpass v1.2.3
     * git 别名git别名的意思就是可以给比较长的命令写配置一个简写，这样操作起来更加方便
