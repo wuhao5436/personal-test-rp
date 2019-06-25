@@ -125,6 +125,7 @@ git config --global user.email john@163.com
 * [git 操作文档2](https://www.jianshu.com/p/65e9c799fe2c)
 ### git 删除本地分支和远程分支
 * git branch -d 和 -D 的区别， 该分支已经完全和他的上游分支完成了merge的情况下可以使用 -d (--delete) 删除，-D (--delete --force)是在不检查merge的情况下直接删除强制删除分支
+* 有些时候远程的分支删除了，本地显示远程分支还在，使用git fetch 无效，使用git remote prune origin 可以删除本地记录的远程分支
 ```
     git 删除本地分支
     git branch -D branchName 
