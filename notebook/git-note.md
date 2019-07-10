@@ -86,10 +86,15 @@ git config --global user.email john@163.com
 
 * 撤销操作
     * commit 信息的提交后如果想重置信息可以使用 git commit --amend
-    * 如果使用了git add . 把不想加入的文件也加入了，那么使用git reset HEAD aa.md 可以将aa.md 移出暂存区
+    * 如果使用了git add . 把不想加入的文件也加入了，那么使用git reset HEAD aa.md 或者 git reset Head . 可以将aa.md 或全部文件 移出暂存区
     * reset 不加 --hard 命令并不危险
     * git checkout -- aa.md 可以将aa.md 的全部修改清空，回到上一次commit的状态，是一个危险操作
-        
+    * git checkout -- . 可以将全部修改都撤销
+    * git commit 了以后进行回滚
+        * git reset --hard <commit_id> 可以回到你想回到的某一个版本
+        * git reset --hard HEAD^ 回到最新的一次提交
+        * git reset HEAD^ 回到git add 钱
+
 * git 远程操作
     * git remote -v 可以查看对应的远程仓库
     * git remote add aaa git@github.com:wuhao5436/happyPIg.git 可以添加远程仓库，并命名短名字aaa ，以后再推动的过程中可以 git push aaa master , 把本地的master分支推送到短名aaa, 对应的远程仓库（成功的前提是远程仓库没有其他人提交）

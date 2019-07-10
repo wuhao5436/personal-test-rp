@@ -1,5 +1,6 @@
-#python
-
+# python
+### 资料 
+* 要学些什么 https://www.imooc.com/article/36516
 ### print
 * print('aa', 'bb')  // aa bb
 * print('aa', 'bb', sep='-', end='#') // aa-bb#
