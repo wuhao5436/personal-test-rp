@@ -73,7 +73,7 @@ bbbbbbbb')
     *  String.count 'apple'.count('p') ->2
     *  String.upper 'aPPle'.upper() -> APPLE
     *  String.lower 'aPPle'.lower() -> apple
-    *  String.center(n, '-') 
+    *  String.center(n, '-')  如果小于或等于字符串的长度，那么不会被包裹，如果大于字符串的长度，先补充右边的，然后补充左边的。
         * 'apple'.center(4,'-') -> apple; 
         * 'apple'.center(5,'-') -> apple; 
         * 'apple'.center(6,'-') -> apple-; 
