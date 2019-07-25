@@ -79,3 +79,6 @@ bbbbbbbb')
         * 'apple'.center(6,'-') -> apple-; 
         * 'apple'.center(7,'-') -> -apple-; 
         * 'apple'.center(8,'-') -> -apple--; 
+
+* 字符串转化
+    * %s 'hello %s %s' %('world', '你好') 
