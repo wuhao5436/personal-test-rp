@@ -26,7 +26,7 @@ print('aaaaaaaaaaaaaa\
 bbbbbbbb')
 
 ### 单引号和双引号混合使用
-* print(""" """)或者print(('''      '''))
+* print("""  a‘’“”''""a """)或者print(('''  a‘’“”''""a    ''')) -> a‘’“”''""a
 
 ### 特殊字符处理
 * print('\\n') 输出\n
