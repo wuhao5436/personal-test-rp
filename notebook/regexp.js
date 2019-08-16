@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-16 10:14:08
+ * @LastEditTime: 2019-08-16 16:48:25
+ * @LastEditors: Please set LastEditors
+ */
 function StringRegTest (str, regex) {
    console.log(str.match(regex)[0]);
 }
@@ -78,3 +85,8 @@ var d1 = ['http', 'https']
 // 回溯
 // 怎么引出来的这个问题 
 // 要求匹配html中所有的h1-6的标签 使用 /<[Hh][1-6]>.*?<\/[Hh][1-6]>/ 可能会匹配出<H1> ...... <H2> 的内容
+
+// 动动脑筋
+// /api/h5_sc_bil/h5deliver/v1/currentprocess/submit	客户经理在填写
+// /api/h5_sc_bil/h5deliver/v1/mysendliver/list	我发送的工单列表
+// 上面的url如何将第一个/删除，后面的/替换成.
