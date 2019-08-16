@@ -1,0 +1,1 @@
+* 创建文件 touch a.log
