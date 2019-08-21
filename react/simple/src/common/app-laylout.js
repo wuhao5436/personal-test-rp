@@ -1,35 +1,33 @@
-import React, { Component } from 'react'
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-06-06 09:05:31
+ * @LastEditTime: 2019-08-21 10:54:53
+ * @LastEditors: Please set LastEditors
+ */
+import React, { PureComponent } from 'react'
 import Menu from '../components/menu';
 import Content from '../components/content';
-import {HashRouter as Router, Route} from 'react-router-dom';
+import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import Example from '../components/detail';
 import Timer from '../components/timer.js';
 
+import LodashComponents from '../pages/lodash';
 
-export default class extends Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      count: 0
-    }
-  }
-  componentDidMount() {
-    window.timerInterVal = setInterval(() => {
-      const { count } = this.state;
-      console.log(123)
-       this.setState({
-         count: count+1
-       }) 
-    }, 2000);
-  }
-  componentWillUnmount () {
-    clearInterval(window.timerInterVal)
-  }
+export default class extends PureComponent {
   render() {
-    const { count } = this.state;
     return (
       <Router>
-        <header style={{ borderBottom: '2px solid #ccc', marginBottom: 5, height: 120 }}>
+        <Switch>
+          <Route path='/lodash' component={LodashComponents} />
+        </Switch>
+      </Router>
+    )
+  }
+}
+
+{/*
+<header style={{ borderBottom: '2px solid #ccc', marginBottom: 5, height: 120 }}>
           <h1 style={{ textIndent: 300 }}>我是标题，我是博客标题</h1>
           <p style={{ textAlign: "right", paddingRight: '300px' }}>我爱学习，学习使我快乐  -- 麦克杰克·浪</p>
         </header>
@@ -39,8 +37,4 @@ export default class extends Component {
             <Content style={{ flex: 1 }} />
           </div>
         </Route> */}
-          <Timer count={count} />
-      </Router>
-    )
-  }
-}
+          {/* <Timer count={count} /> */}
