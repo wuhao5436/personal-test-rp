@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: luoshi
+ * @Date: 2019-05-08 14:27:59
+ * @LastEditTime: 2019-08-22 11:53:55
+ * @LastEditors: Please set LastEditors
+ -->
 # git 和 svn 的比较
 * svn subversion 集中化的版本控制系统， 有一台集中管理的服务器，所有客户端都和这个服务器交互，缺点如果服务器宕机或者数据丢失，文件没有备份的情况下风险较高
     * svn 的工作需要网络的联系，svn的保存逻辑是一组文件随着时间积累的变化
@@ -29,6 +36,7 @@ git config --global user.email john@163.com
     * git clone https://github.com/libgit2/xxx 会在本地创建一个xxx的目录，如果你想自定义目录名字，在这条命令的后面添加 my_project 目录
 * git clone 会自动创建远程仓库和本地仓库的关联关系
 * 如果是自己本地创建的项目想和远程的git仓库关联起来，那么需要执行的命令是git push -u origin featureA ; -u 是--set-upstream 的简写，
+    * 还有一种情况，如果git项目的地址发生了变化, 重新设定remote origin 的地址后，本地库和远程仓库丢失关联，这个时候需要重新设定一下关联 git branch --set-upstream-to=origin/master master ，让本地分支和远程分支再次关联起来。
 * git push -u origin featureB:featureBee, 可以将本地featureB分支上的修改提交到远程featureBee上面
 
 * gitignore
