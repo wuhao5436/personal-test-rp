@@ -95,6 +95,7 @@ git config --global user.email john@163.com
 * 撤销操作
     * commit 信息的提交后如果想重置信息可以使用 git commit --amend
       * git commit --amend 可以重置最近一次的commit信息， 如果使用了bash编辑， i进入编辑，完成后然后esc进入命令模式`:wq` 保存并退出
+      * [bash操作](https://www.cnblogs.com/sunshc/p/10875400.html)
     * 如果使用了git add . 把不想加入的文件也加入了，那么使用git reset HEAD aa.md 或者 git reset Head . 可以将aa.md 或全部文件 移出暂存区
     * reset 不加 --hard 命令并不危险
     * git checkout -- aa.md 可以将aa.md 的全部修改清空，回到上一次commit的状态，是一个危险操作
