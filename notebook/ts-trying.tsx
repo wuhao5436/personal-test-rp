@@ -19,6 +19,8 @@ var p1: Person = {
     friend: ['lucy','lili', 202]
 }
 
+
+
 // 函数申明式和函数表达式的类型
 
 // 申明式
@@ -75,7 +77,7 @@ interface StringSet {
     length?: number
 }
 
-let a: StringSet = [1,2,3]
+let a1: StringSet = [1,2,3]
 
 //类的interface 
 //类的interface只检查实例属性，静态属性需要再定义一个静态属性的检查
@@ -90,7 +92,7 @@ interface PersonInterface {
     log(): void
 }
 
-const Person: PersonConstructor = class Person extends PerserInterface {
+const Person: PersonConstructor = class Person extends PersonInterface {
     name: string
     age: number
     static typeName = 'Person type'
@@ -200,10 +202,17 @@ interface Singing {
     singing: boolean
 }
 
+interface Active extends Walk, Boy {}
 interface Boy {
     [props: string]: Walk & Singing
 }
 
+
+
+let jack : Active = {
+    walking: true,
+    singing: true,
+}
 let tom: Boy = {
     a: {walking:true},
     walking: {walking:true,singing:true},
