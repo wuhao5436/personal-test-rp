@@ -424,6 +424,19 @@ A.prototype.__proto__ === Object.prototype // true
 ```
 * 子类实例的`__proto__.Proto__`是父类实例的`__proto__`
 
+## JS module 的加载
+### script标签
+* 默认HTML中的script标签是按照顺序同步加载，执行到script标签处js会等待script src 中的资源下载完成继续执行
+* script 标签可以通过添加属性，执行异步加载
+  * defer 表示dom渲染完成后执行，按照顺序
+  * async 表示下载完成后执行，无法保证执行顺序
+```
+<script src='../aa/bb/cc.js'  defer > </script>
+<script src='../aa/bb/cc.js'  async> </script>
+```
+
+
+
 ## 修饰器 @
 * @修饰器对类的行为的改变是在编译阶段，而不是运行阶段。
 * mixin 的实质是这样的
