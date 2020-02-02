@@ -434,7 +434,64 @@ A.prototype.__proto__ === Object.prototype // true
 <script src='../aa/bb/cc.js'  defer > </script>
 <script src='../aa/bb/cc.js'  async> </script>
 ```
+* scrpit 标签中添加属性 type="module"  会认为是es6模块，效果类似与 defer
 
+### commonJS 和 ES6 的加载区别
+
+* commonJS 使用 require 导入 使用 module.exports 导出,  输出的是一个拷贝对象，对象在代码执行的时候生成。
+* ES6  使用import 和 export 导入到处，输出的是一个引用，静态资源在解析的过程中就可以输出。
+* ES6 输出的是一个引用，如果输出的是对象，可以修改对象的属性，但是不能重新赋值，被引用的变量是只读的。
+
+### nodeJS 对 ES6 模块的加载
+
+* nodeJS 默认使用commonJS 加载方式
+* nodeJS 13.2 以后支持了 ES 6的加载方式, 但是文件名要以`.mjs`的后缀命名。如果不希望以`.mjs`结束，那么要在 `package.json`中规定 `type:"module"`
+* 同理 如果想使用commonJS 规范，也可以以`.cjs`后缀结尾，或者规定`type:"commonjs"` (默认)
+
+### 入口文件的规定
+* main 执行入口
+```javascript
+{
+    main : './src/index.js'
+}
+```
+*  exports 字段的优先级要高于main字段
+```javascript
+// aa.js
+{
+  "exports": {
+    "./submodule": "./src/submodule.js",
+    ".":"./main.js"  // 兼容性写法
+  }
+}
+```
+* 引用的使用可以使用 `import  submodule from 'aa/submodule' ` 
+* 如果没有在exports字段中指定别名那么就不能使用这种方式引用
+* exports 字段只有新版本的node支持, `.`这个别名，可以为ES6和CommonJS指定不同的入口 (注意！有其他别名的时候不能这样做)
+```javascript
+{
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./main.cjs",    //requrie()
+      "default": "./main.js"    // es6
+    }
+  }
+}
+```
+
+###  commonJS 和 ES6 的相互加载
+
+* ES6 加载commonJS ，`import a from 'a.js'`  必须整体加载 `a`
+* commonJS 加载 ES6 
+```javascript
+(async () =>{
+    await  import ('../b.js')
+})()
+```
+
+### 加载原理
+* commonJS 加载原理： 在代码运行的过程中生成一个单例对象，上面有exports属性，引用的时候就会在exports上面取值。
 
 
 ## 修饰器 @
