@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,6 +42,29 @@
                 insertNode(this.root, newNode);
             }
         }
+
+        // 向左遍历
+        function findLeft (node, callback) {
+            if (node.left) {
+                console.log('node.left', node.left)
+                findLeft(node.left, callback)
+            } 
+             callback&&callback(node.value);
+             if (node.right) {  
+                findLeft(node.right, callback);
+             }
+        }
+
+        // 二叉树中序遍历
+        this.middleSort =function(callback) {
+            if (this.root.left) {
+                findLeft(this.root.left, callback)
+            }
+            callback && callback(this.root.value)
+            if (this.root.right) {
+                findLeft(this.root.right, callback)
+            }
+        }
     }
 
     var tree =  new BinaryTreeGenerator ();
@@ -50,6 +73,13 @@
     });
 
     console.log('tree', tree)
+
+
+    //  二叉树遍历
+
+   tree.middleSort(function(i) {
+    console.log(i);
+   })
 
     </script>
 </body>
