@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>二叉树算法研究</title>
+</head>
+<body>
+    <script>
+     // 生成二叉树对象
+    var arr = [10,5,11,9,6,12,13,87,8,4,3];
+
+    const root = null;
+
+    const  GenerateBinaryTree = function () {
+        var Node = function (value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+
+        this.root = null;
+
+        insertNode = function ( oldNode, newNode ) {
+            if (newNode.value<oldNode.value ) {
+                if (oldNode.left === null) {
+                    oldNode.left = newNode;
+                } else {
+                    insertNode( oldNode.left , newNode );
+                }
+            } else if (newNode.value > oldNode.value ) {
+                if ( oldNode.right === null ) {
+                    oldNode.right = newNode;
+                } else {
+                    insertNode(oldNode.right, newNode);
+                }
+            }
+        }
+
+        this.insert = function (value) {
+            const newNode = new Node (value);
+            if  (this.root === null) {
+                this.root = newNode;
+            } else {
+                insertNode (this.root, newNode);
+            }
+        }
+        
+    }
+
+    const tree = new  GenerateBinaryTree();
+    arr.forEach(function(item) {
+        tree.insert(item);
+    });
+
+    console.log('tree',tree);
+    
+
+
+    
+
+
+
+    </script>
+</body>
+</html>
