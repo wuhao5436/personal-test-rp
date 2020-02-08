@@ -170,7 +170,7 @@
 
         // 生成二叉树实例
         var tree = new BinaryTreeGenerator();
-        var arr = [10, 5, 11, 9, 6, 12, 13, 87, 8, 4, 2, 3, 1];
+        var arr = [10, 5, 11, 9, 7, 8, 6, 12, 13, 87, 4, 2, 3, 1];
         arr.forEach(function (item) {
             tree.insert(item);
         });
