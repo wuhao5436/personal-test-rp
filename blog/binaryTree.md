@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+## js处理二叉树数据结构
+ 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>二叉树算法研究</title>
-</head>
+ ### 参考
+* coding迪斯尼.二叉树算法原理及代码实现  [链接](https://www.imooc.com/video/15739)
 
-<body>
-    <script>
+ ### 代码
+ ```javascript
         // 二叉树构造函数
         var BinaryTreeGenerator = function () {
             var NodeGenerator = function (value) {
@@ -216,9 +212,50 @@
         // tree.remove(5)
         console.log('tree', tree)
 
+ ```
 
+### 理解配图
 
-    </script>
-</body>
+#### 生成的二叉树
+<i>只显示容易产生歧义的null节点</i>
+```mermaid
+graph TD
+10 --> 5
+10 --> 11
+5--> 4
+4 --> 2
+4 --> 4右孩(null)
+5 --> 9
+9 --> 7
+9 --> 9右孩(null)
+7 --> 6
+7 --> 8
+11 --> 12
+12 --> 13
+13 --> 87
+2 --> 1
+2 --> 3
+```
 
-</html>
+#### 删除节点“5” 后的二叉树
+
+```mermaid
+graph TD
+10 --> 6
+10 --> 11
+6--> 4
+4 --> 2
+4 --> 4右孩(null)
+2 --> 1
+2 --> 3
+6 --> 9
+9 --> 7
+9 --> 9右孩(null)
+7 --> 7左孩(null)
+7 --> 8
+11 --> 12
+12 --> 13
+13 --> 87
+
+```
+
