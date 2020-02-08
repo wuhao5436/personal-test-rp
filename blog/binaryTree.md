@@ -2,7 +2,7 @@
  
 
  ### 参考
-* coding迪斯尼.二叉树算法原理及代码实现  [链接](https://www.imooc.com/video/15739)
+* 慕课网.coding迪斯尼.二叉树算法原理及代码实现  [链接](https://www.imooc.com/video/15739)
 
  ### 代码
  ```javascript
