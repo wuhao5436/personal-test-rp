@@ -5,6 +5,7 @@
  * @LastEditTime: 2019-08-22 11:53:55
  * @LastEditors: Please set LastEditors
  -->
+
 # git 和 svn 的比较
 * svn subversion 集中化的版本控制系统， 有一台集中管理的服务器，所有客户端都和这个服务器交互，缺点如果服务器宕机或者数据丢失，文件没有备份的情况下风险较高
     * svn 的工作需要网络的联系，svn的保存逻辑是一组文件随着时间积累的变化
@@ -162,3 +163,14 @@ git config --global user.email john@163.com
     git push origin :branchName
 
 ```
+
+
+# github 使用
+### github 访问慢的解决方案
+1. 修改host
+    * [打开Dns检测工具](http://tool.chinaz.com/dns/)
+    * 查询响应最快的IP
+    * 打开host路径 `C:\Windows\System32\drivers\etc\hosts`
+    * 修改host 格式 `ip  域名`
+        * 例如 `13.250.177.223  github.com`
+* [参考文档](http://www.mamicode.com/info-detail-2942782.html)
